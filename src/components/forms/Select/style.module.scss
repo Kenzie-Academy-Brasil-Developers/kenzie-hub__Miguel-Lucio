@@ -1,0 +1,23 @@
+.selectBox {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  select {
+    height: clamp(2.3988rem, 8vw, 3rem);
+    padding: 0px 16px;
+    background-color: var(--gray300);
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    font-family: var(--font-primary);
+    font-size: clamp(0.8119rem, 2vw, 16.24px);
+    color: var(--gray400);
+
+    &:focus,
+    &:hover {
+      color: var(--gray500);
+      border-color: var(--gray500);
+    }
+  }
+}

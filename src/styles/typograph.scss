@@ -1,0 +1,68 @@
+.title {
+  font-family: var(--font-primary);
+  line-height: 1.4;
+
+  &.one {
+    font-size: clamp(14px, 3vw, 1.125rem);
+    font-weight: 700;
+  }
+
+  &.onefixed {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  &.two {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &.gray500 {
+    color: var(--gray500);
+  }
+
+  &.gray400 {
+    color: var(--gray400);
+  }
+
+  &.primary {
+    color: var(--color-primary);
+  }
+}
+
+.text {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+
+  &.headline {
+    font-size: clamp(0.6088rem, 2vw, 0.75rem);
+    font-weight: 400;
+  }
+
+  &.headlineBold {
+    font-size: clamp(0.6019rem, 2vw, 0.75rem);
+    font-weight: 600;
+  }
+
+  &.headlineBoldFixed {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  &.paragraph {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  &.gray500 {
+    color: var(--gray500);
+  }
+
+  &.gray400 {
+    color: var(--gray400);
+  }
+
+  &.primary {
+    color: var(--color-primary);
+  }
+}

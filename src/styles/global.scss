@@ -1,0 +1,21 @@
+:root {
+  --color-primary: rgba(255, 87, 127, 1);
+  --color-primary-focus: rgba(255, 66, 127, 1);
+  --color-primary-negative: rgba(89, 50, 63, 1);
+
+  --gray100: rgba(18, 18, 20, 1);
+  --gray200: rgba(33, 37, 41, 1);
+  --gray300: rgba(52, 59, 65, 1);
+  --gray400: rgb(134, 142, 150);
+  --gray500: rgba(248, 249, 250, 1);
+  --white: rgba(255, 255, 255, 1);
+
+  --color-sucess: rgba(63, 232, 100, 1);
+  --color-negative: rgba(232, 63, 91, 1);
+
+  --font-primary: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--gray100);
+}

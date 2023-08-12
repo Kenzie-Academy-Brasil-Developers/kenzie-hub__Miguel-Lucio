@@ -1,0 +1,60 @@
+.btn {
+  font-family: var(--font-primary);
+  font-size: clamp(0.8119rem, 2vw, 16.24px);
+  font-weight: 500;
+  color: var(--white);
+
+  height: clamp(38.3808px, 8vw, 48px);
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+
+  &.small {
+    font-size: clamp(0.6088rem, 2vw, 0.75rem);
+    height: clamp(31.9504px, 8vw, 40px);
+  }
+
+  &.primary {
+    background-color: var(--color-primary);
+
+    &:hover {
+      background-color: var(--color-primary-focus);
+    }
+  }
+
+  &.negative {
+    background-color: var(--color-primary-negative);
+
+    &:hover {
+      background-color: var(--color-primary-focus);
+    }
+  }
+
+  &.ligthGray {
+    background-color: var(--gray400);
+
+    &:hover {
+      background-color: var(--gray300);
+    }
+  }
+
+  &.grayStrong {
+    background-color: var(--gray300);
+
+    &:hover {
+      background-color: var(--gray400);
+    }
+  }
+
+  &.grayBold {
+    background-color: var(--gray200);
+
+    &:hover {
+      background-color: var(--gray400);
+    }
+  }
+
+  &.full {
+    width: 100%;
+  }
+}

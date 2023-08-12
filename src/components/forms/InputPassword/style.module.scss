@@ -1,0 +1,42 @@
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  div {
+    position: relative;
+    width: 100%;
+
+    input {
+      width: 100%;
+      height: clamp(2.3988rem, 8vw, 3rem);
+      padding: 0 16px;
+      background-color: var(--gray300);
+      border: 1px solid transparent;
+      border-radius: 4px;
+
+      font-family: var(--font-primary);
+      font-size: clamp(0.8119rem, 2vw, 16.24px);
+      color: var(--gray500);
+
+      &::-webkit-input-placeholder,
+      &:-moz-placeholder,
+      &::-moz-placeholder,
+      &:-ms-input-placeholder {
+        color: var(--gray400);
+      }
+
+      &:focus,
+      &:hover {
+        background-color: var(--gray300);
+        border-color: var(--gray500);
+      }
+    }
+
+    button {
+      position: absolute;
+      top: clamp(0.5rem, 2vw, 0.85rem);
+      right: 16px;
+    }
+  }
+}

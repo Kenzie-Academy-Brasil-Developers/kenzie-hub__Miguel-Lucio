@@ -1,0 +1,14 @@
+.logoBox {
+  width: 100%;
+  max-width: 370px;
+  margin: 70px auto 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .img {
+    height: clamp(14px, 3vw, 20px);
+    width: clamp(101px, 3vw, 144.6px);
+  }
+}

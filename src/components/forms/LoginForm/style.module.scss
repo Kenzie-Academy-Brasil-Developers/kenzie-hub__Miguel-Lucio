@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  width: 100%;
+  max-width: 370px;
+  margin: 35.7px auto 16px;
+  padding: 42px 22px;
+  background-color: var(--gray200);
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  h1,
+  p {
+    text-align: center;
+  }
+}
