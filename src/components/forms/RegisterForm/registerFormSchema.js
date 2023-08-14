@@ -13,7 +13,11 @@ export const registerFormSchema = z
       .min(8, "Mínimo de (8) oito caracteres")
       .regex(/[A-Z]+/, "Obrigatório conter uma letra maiúscula")
       .regex(/[a-z]+/, "Obrigatório conter uma letra misúcula")
-      .regex(/[0-9]+/, "Obrigatório conter um número"),
+      .regex(/[0-9]+/, "Obrigatório conter um número")
+      .regex(
+        /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/]/,
+        "Obrigatório conter um caracter especial."
+      ),
     confirm_password: z.string().nonempty("Confirme sua senha"),
     bio: z.string().nonempty("O campo bio é obrigatório"),
     contact: z.string().nonempty("O campo contato é obrigatório"),
