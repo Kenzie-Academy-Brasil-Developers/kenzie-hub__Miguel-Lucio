@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
-import styles from "./style.module.scss";
 import logo from "../../assets/Logo.svg";
+import styles from "./style.module.scss";
 
-export const DashboardPage = () => {
+export const DashboardPage = ({ user, userLogout }) => {
   return (
     <>
       <header className={styles.headerBox}>
         <div className="container">
           <div className={styles.logoBox}>
             <img src={logo} alt="Kenzie Hub" />
-            <Link to="/">
-              <button className="btn small grayBold">Sair</button>
-            </Link>
+            <button onClick={() => userLogout()} className="btn small grayBold">
+              Sair
+            </button>
           </div>
         </div>
       </header>
@@ -19,9 +18,9 @@ export const DashboardPage = () => {
         <section className={styles.userBox}>
           <div className="container">
             <div className={styles.dataUser}>
-              <h2 className="title onefixed gray500">Olá Miguel Lúcio</h2>
+              <h2 className="title onefixed gray500">Olá, {user.name}</h2>
               <p className="text headlineBoldFixed gray400">
-                Primeiro módulo (Introdução ao frontend)
+                {user.course_module}
               </p>
             </div>
           </div>

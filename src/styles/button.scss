@@ -16,6 +16,7 @@
 
   &.primary {
     background-color: var(--color-primary);
+    transition: 0.4s;
 
     &:hover {
       background-color: var(--color-primary-focus);
@@ -24,6 +25,7 @@
 
   &.negative {
     background-color: var(--color-primary-negative);
+    transition: 0.4s;
 
     &:hover {
       background-color: var(--color-primary-focus);
@@ -32,6 +34,7 @@
 
   &.ligthGray {
     background-color: var(--gray400);
+    transition: 0.4s;
 
     &:hover {
       background-color: var(--gray300);
@@ -40,6 +43,7 @@
 
   &.grayStrong {
     background-color: var(--gray300);
+    transition: 0.4s;
 
     &:hover {
       background-color: var(--gray400);
@@ -48,6 +52,7 @@
 
   &.grayBold {
     background-color: var(--gray200);
+    transition: 0.4s;
 
     &:hover {
       background-color: var(--gray400);

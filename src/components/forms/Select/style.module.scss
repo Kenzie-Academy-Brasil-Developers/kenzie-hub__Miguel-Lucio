@@ -2,9 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+  align-items: flex-start;
+  width: 100%;
 
   select {
     height: clamp(2.3988rem, 8vw, 3rem);
+    width: 100%;
     padding: 0px 16px;
     background-color: var(--gray300);
     border: 1px solid transparent;

@@ -2,7 +2,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { forwardRef, useState } from "react";
 import styles from "./style.module.scss";
 
-export const InputPassword = forwardRef(({ label, ...rest }, ref) => {
+export const InputPassword = forwardRef(({ error, label, ...rest }, ref) => {
   const [isHidden, setIsHidden] = useState(true);
   return (
     <div className={styles.inputBox}>
@@ -17,6 +17,7 @@ export const InputPassword = forwardRef(({ label, ...rest }, ref) => {
           )}
         </button>
       </div>
+      {error ? <p className="text helper gray400">{error.message}</p> : null}
     </div>
   );
 });
