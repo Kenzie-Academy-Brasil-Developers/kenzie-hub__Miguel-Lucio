@@ -1,49 +1,29 @@
 import { useForm } from "react-hook-form";
+import { useContext, useState } from "react";
+import { UserContext } from "../../../providers/UserContext";
 import { Input } from "../Input";
 import { InputPassword } from "../InputPassword";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginFormSchema } from "./loginFormSchema";
-import { api } from "../../../services/api";
-import { toast } from "react-toastify";
 import styles from "./style.module.scss";
 
-export const LoginForm = ({ setUser }) => {
+export const LoginForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: zodResolver(loginFormSchema),
   });
 
-  const navigate = useNavigate();
-
   const [loading, setLoading] = useState(false);
 
-  const userLogin = async (formData) => {
-    try {
-      setLoading(true);
-      const { data } = await api.post("/sessions", formData);
-      setUser(data.user);
-      localStorage.setItem("@TOKEN", data.token);
-      toast.success("Usuário logado");
-      navigate("/dashboard");
-    } catch (error) {
-      if (
-        error.response?.data.message ===
-        "Incorrect email / password combination"
-      ) {
-        toast.error("Email e/ou senha incorretos");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { userLogin } = useContext(UserContext);
 
   const submit = (formData) => {
-    userLogin(formData);
+    userLogin(formData, setLoading, reset);
   };
 
   return (
