@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import { toast } from "react-toastify";
@@ -8,7 +8,34 @@ export const UserContext = createContext({});
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("@tokenKenzieHub");
+
+    const getUser = async () => {
+      try {
+        setLoading(true);
+        const { data } = await api.get("profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUser(data);
+        navigate("/dashboard");
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (token) {
+      getUser();
+    }
+  }, []);
 
   const userRegister = async (formData, setLoading, reset) => {
     try {
@@ -31,7 +58,7 @@ export const UserProvider = ({ children }) => {
       setLoading(true);
       const { data } = await api.post("/sessions", formData);
       setUser(data.user);
-      localStorage.setItem("@TOKEN", data.token);
+      localStorage.setItem("@tokenKenzieHub", data.token);
       toast.success("Usuário logado");
       reset();
       navigate("/dashboard");
@@ -51,13 +78,14 @@ export const UserProvider = ({ children }) => {
     setUser(null);
     toast.error("Usuário deslogado");
     navigate("/");
-    localStorage.removeItem("@TOKEN");
+    localStorage.removeItem("@tokenKenzieHub");
   };
 
   return (
     <UserContext.Provider
       value={{
         user,
+        loading,
         userRegister,
         userLogin,
         userLogout,
