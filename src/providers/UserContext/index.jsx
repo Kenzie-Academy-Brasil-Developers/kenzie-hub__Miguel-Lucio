@@ -12,6 +12,8 @@ export const UserProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
+  const pathname = window.location.pathname;
+
   useEffect(() => {
     const token = localStorage.getItem("@tokenKenzieHub");
 
@@ -24,9 +26,13 @@ export const UserProvider = ({ children }) => {
           },
         });
         setUser(data);
-        navigate("/dashboard");
+        navigate(pathname);
       } catch (error) {
-        console.log(error);
+        if (error.response.data.message === "Token inválido.") {
+          toast.error(
+            "Acesso expirado... Por favor, realize o login novamente"
+          );
+        }
       } finally {
         setLoading(false);
       }
