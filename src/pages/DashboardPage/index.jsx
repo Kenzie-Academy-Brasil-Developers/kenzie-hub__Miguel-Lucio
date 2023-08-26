@@ -1,10 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../providers/UserContext";
 import logo from "../../assets/Logo.svg";
 import styles from "./style.module.scss";
+import { TechList } from "../../components/TechList";
+import { CreateTechModal } from "../../components/modals/CreateTechModal";
+import { EditTechModal } from "../../components/modals/EditTechModal";
 
 export const DashboardPage = () => {
   const { user, userLogout } = useContext(UserContext);
+  const [visibleCreateModal, setVisibleCreateModal] = useState(false);
+  const [visibleEditModal, setVisibleEditModal] = useState(false);
 
   return (
     <>
@@ -31,18 +36,19 @@ export const DashboardPage = () => {
         </section>
         <section>
           <div className="container">
-            <div className={styles.developingBox}>
-              <h3 className="title onefixed gray500">
-                Que pena! Estamos em desenvolvimento :(
-              </h3>
-              <p className="text paragraph gray500">
-                Nossa aplicação está em desenvolvimento, em breve teremos
-                novidades
-              </p>
-            </div>
+            <TechList
+              setVisibleCreateModal={setVisibleCreateModal}
+              setVisibleEditModal={setVisibleEditModal}
+            />
           </div>
         </section>
       </main>
+      {visibleCreateModal ? (
+        <CreateTechModal setVisibleCreateModal={setVisibleCreateModal} />
+      ) : null}
+      {visibleEditModal ? (
+        <EditTechModal setVisibleEditModal={setVisibleEditModal} />
+      ) : null}
     </>
   );
 };

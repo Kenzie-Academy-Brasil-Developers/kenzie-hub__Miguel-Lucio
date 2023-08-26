@@ -10,10 +10,14 @@
   --gray500: rgba(248, 249, 250, 1);
   --white: rgba(255, 255, 255, 1);
 
-  --color-sucess: rgba(63, 232, 100, 1);
-  --color-negative: rgba(232, 63, 91, 1);
+  --toastify-color-dark: rgba(52, 59, 65, 1);
+  --toastify-color-success: rgba(63, 232, 100, 1);
+  --toastify-color-error: rgba(232, 63, 91, 1);
+
+  --back-drop-color: rgba(18, 18, 20, 0.5);
 
   --font-primary: "Inter", sans-serif;
+  --font-secundary: "Nunito", sans-serif;
 }
 
 body {

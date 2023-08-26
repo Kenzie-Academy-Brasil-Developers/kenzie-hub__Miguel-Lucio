@@ -3,7 +3,7 @@
   line-height: 1.4;
 
   &.one {
-    font-size: clamp(14px, 3vw, 1.125rem);
+    font-size: clamp(0.875rem, 3vw, 1.125rem);
     font-weight: 700;
   }
 
@@ -15,6 +15,16 @@
   &.two {
     font-size: 1rem;
     font-weight: 600;
+  }
+
+  &.three {
+    font-size: 0.8881rem;
+    font-weight: 700;
+  }
+
+  &.four {
+    font-size: clamp(0.7019rem, 2vw, 0.875rem);
+    font-weight: 700;
   }
 
   &.gray500 {

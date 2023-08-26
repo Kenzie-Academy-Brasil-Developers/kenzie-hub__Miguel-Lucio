@@ -1,0 +1,62 @@
+.overlayBox {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--back-drop-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modalBox {
+    background: var(--gray200);
+    width: 100%;
+    max-width: 369px;
+    margin: 13px;
+    border: none;
+    border-radius: 4px;
+
+    .headerBox {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background-color: var(--gray300);
+      border-radius: 4px 4px 0 0;
+
+      button {
+        font-family: var(--font-secundary);
+        font-weight: 600;
+        font-size: clamp(0.8019rem, 2vw, 1rem);
+        color: var(--gray400);
+
+        &:hover {
+          color: var(--gray500);
+        }
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 30px 18px;
+    }
+  }
+}
+@media (min-width: 600px) {
+  .overlayBox {
+    .modalBox {
+      .headerBox {
+        padding: 12px 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 35px 22px;
+      }
+    }
+  }
+}
