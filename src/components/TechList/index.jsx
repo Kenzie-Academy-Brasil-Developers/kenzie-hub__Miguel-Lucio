@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import styles from "./style.module.scss";
 import { TechCard } from "./TechCard";
+import { TechContext } from "../../providers/TechContext";
 
-export const TechList = ({ setVisibleCreateModal, setVisibleEditModal }) => {
+export const TechList = ({}) => {
+  const { setVisibleCreateModal, techList } = useContext(TechContext);
+
   return (
     <div className={styles.techBox}>
       <div className={styles.titleBox}>
@@ -15,8 +19,15 @@ export const TechList = ({ setVisibleCreateModal, setVisibleEditModal }) => {
         </button>
       </div>
       <ul>
-        <TechCard setVisibleEditModal={setVisibleEditModal} />
-        <TechCard setVisibleEditModal={setVisibleEditModal} />
+        {techList.length === 0 ? (
+          <li>
+            <p className="text two gray500">
+              Você não possui tecnologias cadastradas
+            </p>
+          </li>
+        ) : (
+          techList.map((tech) => <TechCard key={tech.id} tech={tech} />)
+        )}
       </ul>
     </div>
   );

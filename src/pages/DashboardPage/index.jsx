@@ -5,11 +5,11 @@ import styles from "./style.module.scss";
 import { TechList } from "../../components/TechList";
 import { CreateTechModal } from "../../components/modals/CreateTechModal";
 import { EditTechModal } from "../../components/modals/EditTechModal";
+import { TechContext } from "../../providers/TechContext";
 
 export const DashboardPage = () => {
   const { user, userLogout } = useContext(UserContext);
-  const [visibleCreateModal, setVisibleCreateModal] = useState(false);
-  const [visibleEditModal, setVisibleEditModal] = useState(false);
+  const { visibleCreateModal, editingTech } = useContext(TechContext);
 
   return (
     <>
@@ -36,19 +36,12 @@ export const DashboardPage = () => {
         </section>
         <section>
           <div className="container">
-            <TechList
-              setVisibleCreateModal={setVisibleCreateModal}
-              setVisibleEditModal={setVisibleEditModal}
-            />
+            <TechList />
           </div>
         </section>
       </main>
-      {visibleCreateModal ? (
-        <CreateTechModal setVisibleCreateModal={setVisibleCreateModal} />
-      ) : null}
-      {visibleEditModal ? (
-        <EditTechModal setVisibleEditModal={setVisibleEditModal} />
-      ) : null}
+      {visibleCreateModal ? <CreateTechModal /> : null}
+      {editingTech ? <EditTechModal /> : null}
     </>
   );
 };

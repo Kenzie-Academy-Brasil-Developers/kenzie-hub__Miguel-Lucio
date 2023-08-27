@@ -41,6 +41,30 @@
       flex-direction: column;
       gap: 18px;
       padding: 30px 18px;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+        width: 100%;
+
+        .tech {
+          display: flex;
+          align-items: center;
+          height: clamp(2.3988rem, 8vw, 3rem);
+          width: 100%;
+          padding: 0 16px;
+          background-color: var(--gray300);
+          border: 1px solid transparent;
+          border-radius: 4px;
+          cursor: auto;
+
+          font-family: var(--font-primary);
+          font-size: clamp(0.8119rem, 2vw, 16.24px);
+          color: var(--gray500);
+        }
+      }
     }
   }
 }

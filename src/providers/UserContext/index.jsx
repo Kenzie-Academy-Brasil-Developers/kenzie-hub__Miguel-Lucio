@@ -7,6 +7,7 @@ export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [techList, setTechList] = useState([]);
 
   const [loading, setLoading] = useState(false);
 
@@ -26,6 +27,7 @@ export const UserProvider = ({ children }) => {
           },
         });
         setUser(data);
+        setTechList(data.techs);
         navigate(pathname);
       } catch (error) {
         if (error.response.data.message === "Token inválido.") {
@@ -64,6 +66,7 @@ export const UserProvider = ({ children }) => {
       setLoading(true);
       const { data } = await api.post("/sessions", formData);
       setUser(data.user);
+      setTechList(data.user.techs);
       localStorage.setItem("@tokenKenzieHub", data.token);
       toast.success("Usuário logado");
       reset();
@@ -82,6 +85,7 @@ export const UserProvider = ({ children }) => {
 
   const userLogout = () => {
     setUser(null);
+    setTechList([]);
     toast.error("Usuário deslogado");
     navigate("/");
     localStorage.removeItem("@tokenKenzieHub");
@@ -95,6 +99,8 @@ export const UserProvider = ({ children }) => {
         userRegister,
         userLogin,
         userLogout,
+        techList,
+        setTechList,
       }}
     >
       {children}
