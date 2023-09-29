@@ -1,8 +1,15 @@
-# React + Vite
+# Kenzie Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O Kenzie Hub é o projeto de uma rede social para desenvolvedores
 
-Currently, two official plugins are available:
+Principais tecnologias utilizadas:
+- axios;
+- react;
+- react-dom
+- react-hook-form
+- react-router-dom
+- zod
+- sass
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Deploy:
+- [Kenzie-hub](https://react-entrega-kenzie-hub-miguel-lucio.vercel.app/)
